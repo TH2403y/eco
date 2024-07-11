@@ -44,8 +44,10 @@ class DisplayName : DisplayNameProxy {
 
         val nmsEntity = entity.handle
         nmsEntity.isCustomNameVisible
-        val entityData = SynchedEntityData.Builder(nmsEntity).build()
-
+        try {
+            val entityData = SynchedEntityData.Builder(nmsEntity).build()
+        } catch {
+        }
         entityData.set(displayNameAccessor, Optional.of(nmsComponent), true)
         entityData.set(customNameVisibleAccessor, visible, true)
 
